@@ -32,9 +32,17 @@ namespace ogrenciApp
             
             o1.no = rnd.Next(1000, 5000).ToString();
             olist.Add(o1);
-
+            temizle();
 
            
+        }
+
+        private void temizle()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -58,6 +66,11 @@ namespace ogrenciApp
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            Ogrenci secilen =(Ogrenci)dataGridView1.CurrentRow.DataBoundItem;
+            textBox1.Text = secilen.ad;
+            textBox2.Text = secilen.soyad;
+            comboBox1.SelectedItem = secilen.bolum;
+            comboBox2.SelectedItem =secilen.sinif.ToString();
 
         }
     }
